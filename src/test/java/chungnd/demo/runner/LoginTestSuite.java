@@ -2,16 +2,16 @@ package chungnd.demo.runner;
 
 import chungnd.demo.common.DriverFactory;
 import chungnd.demo.page.LoginPage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class LoginTestSuite {
     WebDriver driver;
     LoginPage loginPage;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         driver = DriverFactory.createDriver();
         loginPage = new LoginPage(driver);
@@ -20,13 +20,13 @@ public class LoginTestSuite {
     }
 
     @Test
-    public void loginWithValidUsernameAndPassword(){
+    public void loginWithValidUsernameAndPassword() {
         loginPage.clickOnMyAccountMenu();
-        loginPage.login("chungnd@paraline.com.vn","ParalineAuto123@");
+        loginPage.login("chungnd@paraline.com.vn", "ParalineAuto123@");
         loginPage.verifyDashboardDisplayed();
     }
 
-    @After
+    @AfterEach
     public void closeBroswer() {
         driver.quit();
     }

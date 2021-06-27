@@ -2,18 +2,18 @@ package chungnd.demo.runner;
 
 import chungnd.demo.common.DriverFactory;
 import chungnd.demo.page.HomePage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class HomePageTestSuite {
     WebDriver driver;
     HomePage homePage;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         driver = DriverFactory.createDriver();
         homePage = new HomePage(driver);
@@ -35,7 +35,7 @@ public class HomePageTestSuite {
         homePage.verifyNumberOfArrivals();
     }
 
-    @After
+    @AfterEach
     public void closeBroswer() {
         driver.quit();
     }

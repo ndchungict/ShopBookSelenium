@@ -1,6 +1,6 @@
 package chungnd.demo.page;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +54,6 @@ public class LoginPage extends PageFactory {
     }
 
     public void verifyDashboardDisplayed(){
-        Assert.assertTrue(dashboard.isDisplayed());
+        Assertions.assertTrue(dashboard.isDisplayed());
     }
 }

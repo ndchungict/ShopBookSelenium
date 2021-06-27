@@ -1,6 +1,6 @@
 package chungnd.demo.page;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,10 +37,10 @@ public class HomePage extends PageFactory {
     }
 
     public void verifyNumberOfSliders(){
-        Assert.assertEquals(3,listSlider.size());
+        Assertions.assertEquals(3,listSlider.size());
     }
 
     public void verifyNumberOfArrivals(){
-        Assert.assertEquals(3,listArrivals.size());
+        Assertions.assertEquals(3,listArrivals.size());
     }
 }
