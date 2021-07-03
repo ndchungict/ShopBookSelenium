@@ -25,14 +25,14 @@ public class HomePageTestSuite {
     public void verify_sliders_number() {
         homePage.clickOnShopMenu();
         homePage.clickOnHomeMenuButton();
-        homePage.verifyNumberOfSliders();
+        homePage.verifyNumberOfSliders(3);
     }
 
     @Test
     public void verify_arrivals_number() {
         homePage.clickOnShopMenu();
         homePage.clickOnHomeMenuButton();
-        homePage.verifyNumberOfArrivals();
+        homePage.verifyNumberOfArrivals(3);
     }
 
     @AfterEach

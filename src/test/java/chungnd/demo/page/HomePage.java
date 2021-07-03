@@ -1,19 +1,17 @@
 package chungnd.demo.page;
 
+import chungnd.demo.common.BasePage;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HomePage extends PageFactory {
-    WebDriver driver;
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
+        super(driver);
     }
 
     @FindBy(xpath = "//nav[@id='main-nav-wrap']//a[text()='Shop']")
@@ -36,11 +34,11 @@ public class HomePage extends PageFactory {
         homeMenuButton.click();
     }
 
-    public void verifyNumberOfSliders(){
-        Assertions.assertEquals(3,listSlider.size());
+    public void verifyNumberOfSliders(int number){
+        Assertions.assertEquals(number,listSlider.size());
     }
 
-    public void verifyNumberOfArrivals(){
-        Assertions.assertEquals(3,listArrivals.size());
+    public void verifyNumberOfArrivals(int number){
+        Assertions.assertEquals(number,listArrivals.size());
     }
 }
