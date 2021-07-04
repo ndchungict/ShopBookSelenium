@@ -1,18 +1,13 @@
 package chungnd.demo.page;
 
+import chungnd.demo.common.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends PageFactory {
-    WebDriver driver;
+public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
-    }
 
     @FindBy(xpath = "//ul[@id='main-nav']//a[text()='My Account']")
     WebElement myAccountMenu;
@@ -29,6 +24,11 @@ public class LoginPage extends PageFactory {
     @FindBy(xpath = "//nav[@class='woocommerce-MyAccount-navigation']//a[text()='Dashboard']")
     WebElement dashboard;
 
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickOnMyAccountMenu(){
         myAccountMenu.click();
     }
@@ -37,6 +37,7 @@ public class LoginPage extends PageFactory {
         inputUsername(username);
         inputPassword(password);
         clickOnLoginButton();
+        waitForSec(3);
     }
 
     public void inputUsername(String username){

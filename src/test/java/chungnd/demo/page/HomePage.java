@@ -1,5 +1,6 @@
 package chungnd.demo.page;
 
+import chungnd.demo.common.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,13 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HomePage extends PageFactory {
-    WebDriver driver;
-
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver,this);
-    }
+public class HomePage extends BasePage {
 
     @FindBy(xpath = "//nav[@id='main-nav-wrap']//a[text()='Shop']")
     WebElement shopMenu;
@@ -28,8 +23,13 @@ public class HomePage extends PageFactory {
     @FindBy(xpath = "//div[@class='woocommerce']//a/img")
     List<WebElement> listArrivals;
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickOnShopMenu(){
         shopMenu.click();
+        waitForSec(3);
     }
 
     public void clickOnHomeMenuButton(){

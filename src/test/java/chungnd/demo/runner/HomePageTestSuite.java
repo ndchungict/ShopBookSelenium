@@ -1,5 +1,6 @@
 package chungnd.demo.runner;
 
+import chungnd.demo.common.DriverFactory;
 import chungnd.demo.page.HomePage;
 import org.junit.After;
 import org.junit.Before;
@@ -14,8 +15,7 @@ public class HomePageTestSuite {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Setup\\webdrivers\\Chrome 91\\chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverFactory.createDriver();
         homePage = new HomePage(driver);
         driver.get("http://practice.automationtesting.in/");
         driver.manage().window().maximize();
