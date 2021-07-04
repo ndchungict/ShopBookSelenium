@@ -23,8 +23,14 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@class='woocommerce']//a/img")
     List<WebElement> listArrivals;
 
+
+
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public void openHomePage(){
+        getDriver().get("http://practice.automationtesting.in/");
     }
 
     public void clickOnShopMenu(){

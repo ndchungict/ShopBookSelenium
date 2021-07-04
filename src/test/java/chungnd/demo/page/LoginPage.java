@@ -24,6 +24,8 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='woocommerce-MyAccount-navigation']//a[text()='Dashboard']")
     WebElement dashboard;
 
+    @FindBy(xpath = "//div[@class='woocommerce']//li")
+    WebElement errorLabel;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -56,5 +58,9 @@ public class LoginPage extends BasePage {
 
     public void verifyDashboardDisplayed(){
         Assert.assertTrue(dashboard.isDisplayed());
+    }
+
+    public void verifyErrorMessage(String message){
+        Assert.assertEquals(message,errorLabel.getText());
     }
 }
