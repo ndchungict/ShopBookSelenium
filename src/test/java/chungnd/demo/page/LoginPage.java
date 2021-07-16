@@ -8,10 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//ul[@id='main-nav']//a[text()='My Account']")
     WebElement myAccountMenu;
 
@@ -27,6 +23,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//nav[@class='woocommerce-MyAccount-navigation']//a[text()='Dashboard']")
     WebElement dashboard;
 
+    @FindBy(xpath = "//div[@class='woocommerce']//li")
+    WebElement errorLabel;
+
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void clickOnMyAccountMenu(){
         myAccountMenu.click();
@@ -36,6 +38,7 @@ public class LoginPage extends BasePage {
         inputUsername(username);
         inputPassword(password);
         clickOnLoginButton();
+        waitForSec(3);
     }
 
     public void inputUsername(String username){
@@ -54,5 +57,9 @@ public class LoginPage extends BasePage {
 
     public void verifyDashboardDisplayed(){
         Assertions.assertTrue(dashboard.isDisplayed());
+    }
+
+    public void verifyErrorMessage(String message){
+        Assertions.assertEquals(message,errorLabel.getText());
     }
 }

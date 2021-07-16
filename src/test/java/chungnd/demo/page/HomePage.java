@@ -10,10 +10,6 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(xpath = "//nav[@id='main-nav-wrap']//a[text()='Shop']")
     WebElement shopMenu;
 
@@ -26,19 +22,30 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//div[@class='woocommerce']//a/img")
     List<WebElement> listArrivals;
 
+
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void openHomePage(){
+        getDriver().get("http://practice.automationtesting.in/");
+    }
+
     public void clickOnShopMenu(){
         shopMenu.click();
+        waitForSec(3);
     }
 
     public void clickOnHomeMenuButton(){
         homeMenuButton.click();
     }
 
-    public void verifyNumberOfSliders(int number){
-        Assertions.assertEquals(number,listSlider.size());
+    public void verifyNumberOfSliders(){
+        Assertions.assertEquals(3,listSlider.size());
     }
 
-    public void verifyNumberOfArrivals(int number){
-        Assertions.assertEquals(number,listArrivals.size());
+    public void verifyNumberOfArrivals(){
+        Assertions.assertEquals(3,listArrivals.size());
     }
 }

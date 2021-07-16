@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage extends PageFactory {
-    private WebDriver driver;
+    WebDriver driver;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -14,4 +14,13 @@ public class BasePage extends PageFactory {
     public WebDriver getDriver() {
         return driver;
     }
+
+    public void waitForSec(int time){
+        try {
+            Thread.sleep(time*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
