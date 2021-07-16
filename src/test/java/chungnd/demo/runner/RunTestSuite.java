@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty","html:target/report.html"},
         glue="chungnd.demo.steps",
-        features = "src/test/java/chungnd/demo/feature/Login.feature"
+        features = "src/test/java/chungnd/demo/feature"
 )
-public class RunLoginTest {
+public class RunTestSuite {
 }

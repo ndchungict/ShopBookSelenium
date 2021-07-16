@@ -17,7 +17,7 @@ public class BasePage extends PageFactory {
 
     public void waitForSec(int time){
         try {
-            Thread.sleep(time*100);
+            Thread.sleep(time*1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

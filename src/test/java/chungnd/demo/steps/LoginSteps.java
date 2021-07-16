@@ -19,7 +19,7 @@ public class LoginSteps {
     HomePage homePage;
 
     public LoginSteps() {
-        this.driver = DriverFactory.createDriver();
+        this.driver = Hooks.driver;
         loginPage = new LoginPage(this.driver);
         homePage = new HomePage(this.driver);
     }
@@ -59,14 +59,4 @@ public class LoginSteps {
         loginPage.verifyErrorMessage(message);
     }
 
-
-    @After
-    public void afterTest(Scenario scenario) {
-        if (true) {
-            final byte[] screenshot = ((TakesScreenshot) driver)
-                    .getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png","anh"); //stick it in the report
-        }
-        homePage.getDriver().quit();
-    }
 }
